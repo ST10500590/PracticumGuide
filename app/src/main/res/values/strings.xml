@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PracticumGuide</string>
+    <string name="title_activity_second_screen">SecondScreen</string>
+    <string name="title_activity_third_screen">ThirdScreen</string>
+</resources>
