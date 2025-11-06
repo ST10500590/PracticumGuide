@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -21,6 +22,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -53,7 +55,11 @@ class SecondScreen : ComponentActivity() {
                     mutableStateOf("")
                 }
 
-                Column ()
+                Column (
+                    modifier= Modifier.fillMaxSize(), //to expand the wrap to fill the entire screen
+                    horizontalAlignment=Alignment.CenterHorizontally, //this is going to center the composables horizontally
+                    verticalArrangement = Arrangement.Center
+                )
                 {
                     Divider()
                     Spacer(modifier = Modifier.size(30.dp))
@@ -68,7 +74,7 @@ class SecondScreen : ComponentActivity() {
                     )
 
                     Spacer(modifier = Modifier.size(30.dp))
-                    Text("2:What is the clock frequency of an ATmega328P typically used with Arduino Uno??")                      //Question2
+                    Text("")                      //Question2
 
 
                     OutlinedTextField(
@@ -78,7 +84,7 @@ class SecondScreen : ComponentActivity() {
                     )
 
                     Spacer(modifier = Modifier.size(30.dp))
-                    Text("3: What is the size of the ATmega328P’s Flash memory?")
+                    Text("")
 
 
                     OutlinedTextField(
@@ -88,7 +94,7 @@ class SecondScreen : ComponentActivity() {
                     )
 
                     Spacer(modifier = Modifier.size(30.dp))
-                    Text("4:Name one of the three main types of memory in an AVR microcontroller?")                  //
+                    Text("")                  //
 
 
                     OutlinedTextField(
@@ -102,8 +108,7 @@ class SecondScreen : ComponentActivity() {
                     Row ()
                     {
                         Button(onClick = {
-                            var back = Intent(this@FlashCardsQuestion, MainActivity::class.java)
-                            startActivity(back)
+
                         }
                         )
                         {
@@ -111,21 +116,21 @@ class SecondScreen : ComponentActivity() {
                         }
 
                         Button(onClick = {
-                            var back = Intent(this@FlashCardsQuestion, MainActivity::class.java)
+                            var back = Intent(this@SecondScreen, ThirdScreen::class.java)
                             startActivity(back)
                         }
                         )
                         {
-                            Text("Back")
+                            Text("Add")
                         }
 
                         Button(onClick = {
-                            var back = Intent(this@FlashCardsQuestion, MainActivity::class.java)
-                            startActivity(back)
+                            var exit = Intent(this@SecondScreen, MainActivity::class.java)
+                            startActivity(exit)
                         }
                         )
                         {
-                            Text("Back")
+                            Text("Exit")
                         }
                     }
                 }
